@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    	
+	<!-- ========================SpringMVC配置======================== -->
+	
+	<!-- 对注解的支持（由于需要对Json的支持，故必不可少） -->
+	<mvc:annotation-driven />
+	
+	<!-- 静态资源 -->
+	<mvc:resources location="/css/**" mapping="/css/**"/>
+	<mvc:resources location="/images/**" mapping="/images/**"/>
+	<mvc:resources location="/js/**" mapping="/js/**"/>
+	<mvc:resources location="/fonts/**" mapping="/fonts/**"/>
+	<mvc:resources location="/jsp/**" mapping="/jsp/**"/>
+	
+	<!--JSP视图解析 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/page/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 全局异常处理 -->
+    <!-- <bean id="exceptionResolver" class="com.zxd.exception.ExceptionResolver" /> -->
+    
+    <!-- 切面日志 -->
+	<!-- <bean id="logAdvice" class="com.zxd.log.LogAdvice" />
+    <aop:config>
+        <aop:aspect id="aspectLog" ref="logAdvice">
+            <aop:pointcut id="pointCutLog" expression="execution(* com.zxd..*.action.*.*(..))"/>
+            <aop:around method="doAround"  pointcut-ref="pointCutLog"/>
+        </aop:aspect>
+    </aop:config>
+ -->    
+	
+</beans>
+
