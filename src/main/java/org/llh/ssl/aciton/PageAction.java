@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageAction {
 
 	@RequestMapping("")
-	public String index(HttpServletRequest request) {
+	public String index(HttpServletRequest request, int pageNo) {
 		
 		List<User> users = new ArrayList<User>();
 		

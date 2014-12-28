@@ -57,9 +57,10 @@ public class MyRealm extends AuthorizingRealm {
         //实际中可能会像上面注释的那样从数据库取得  
         if(null!=currentUsername && "shiro".equals(currentUsername)){  
             //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色    
-            simpleAuthorInfo.addRole("user");  
+            simpleAuthorInfo.addRole("users");  
             //添加权限  
-            simpleAuthorInfo.addStringPermission("query");  
+            simpleAuthorInfo.addStringPermission("querys");  
+            
             System.out.println("已为用户[shiro]赋予了[user]角色和[user:query]权限");  
             return simpleAuthorInfo;  
         }
