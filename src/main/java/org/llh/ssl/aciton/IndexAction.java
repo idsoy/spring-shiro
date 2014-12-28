@@ -2,6 +2,7 @@ package org.llh.ssl.aciton;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.llh.ssl.bean.Role;
 import org.llh.ssl.bean.User;
@@ -14,6 +15,7 @@ public class IndexAction {
 
 	@RequestMapping("")
 	@ResponseBody
+	@RequiresAuthentication
 	public String index() {
 		return "index";
 	}
